@@ -1,9 +1,13 @@
 import React from 'react'
-
-const page = () => {
+import { auth } from "@/auth"
+const page = async() => {
+  const session = await auth()
   return (
     <div>
       hai home
+      <pre className="py-6 px-4 whitespace-pre-wrap break-all">
+          {JSON.stringify(session, null, 2)}
+        </pre>
     </div>
   )
 }

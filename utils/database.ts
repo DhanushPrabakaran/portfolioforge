@@ -10,7 +10,7 @@ export const connectToDB = async () => {
     return;
   }
   try {
-    await mongoose.connect(process.env.MONGODB_URI ?? "", { dbName: "todos" });
+    await mongoose.connect(process.env.MONGODB_URI ?? "", { dbName: "Portfolioforge" });
     isConnected = true;
     console.info("==== MongoDB connected ====");
   } catch (error) {

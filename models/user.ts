@@ -1,4 +1,8 @@
 import { Schema, model, models } from "mongoose";
+import { ProjectSchema } from "@/models/project";
+import {  SkillSetSchema } from "./skillset";
+import { ExperienceSchema } from "./experience";
+import { ConnectSchema } from "./connect";
 
 const UserSchema = new Schema({
   email: {
@@ -16,6 +20,10 @@ const UserSchema = new Schema({
   image: {
     type: String,
   },
+  projects: [ProjectSchema],
+  experiences: [ExperienceSchema],
+  skillSet: SkillSetSchema,
+  connects: [ConnectSchema],
 });
 
 const User = models.User || model("User", UserSchema);
