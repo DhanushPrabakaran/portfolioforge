@@ -15,7 +15,7 @@
 
 # production
 /build
-
+/app/api/todo/*
 # misc
 .DS_Store
 *.pem
