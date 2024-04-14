@@ -1,8 +1,9 @@
-
+// "use client"
+import {auth} from "@/auth"
 import React, { useState } from 'react'
 
-const Home = () => {
-  
+const Home = async () => {
+  const session = await auth();
   return (
     <div className="h-full w-full flex items-center justify-center" style={{ background: '#edf2f7' }}>
     <div className="w-full">
@@ -33,6 +34,9 @@ const Home = () => {
           <div>
             <h2 className="text-3xl font-semibold text-gray-800 md:text-4xl">Build Your New <span className="text-indigo-600">Idea</span></h2>
             <p className="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates. Cumque debitis dignissimos id quam vel!</p>
+            {/* <pre> */}
+            <pre>{JSON.stringify(session, null, 2)}</pre>
+            {/* </pre> */}
             <div className="flex justify-center lg:justify-start mt-6">
               <a className="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="#">Get Started</a>
               <a className="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400" href="#">Learn More</a>

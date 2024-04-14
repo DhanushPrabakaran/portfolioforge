@@ -9,11 +9,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Google, GitHub],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      // console.log("user",user);
-      // console.log( "account", account);
-      // console.log("profile", profile);
-      // console.log( "email",email);
-      // console.log("credentials",credentials);
+     
 
       return true;
     },
