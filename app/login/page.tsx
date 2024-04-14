@@ -1,9 +1,10 @@
-import Form from '@/components/pages/Form'
+import Login from '@/components/pages/Login'
 import React from 'react'
 
 const page = () => {
   return (
-    <Form/>
+
+      <Login/>
   )
 }
 
