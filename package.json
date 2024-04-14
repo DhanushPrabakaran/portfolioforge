@@ -10,14 +10,8 @@
   },
   "dependencies": {
     "@auth/core": "^0.29.0",
-    "@auth/mongodb-adapter": "^2.6.0",
     "@auth/prisma-adapter": "^1.6.0",
-    "@prisma/client": "^5.12.1",
-    "bcrypt": "^5.1.1",
-    "bson": "^6.6.0",
-    "db": "file:prisma/client",
-    "mongodb": "^6.5.0",
-    "mongoose": "^8.3.0",
+    "@prisma/client": "^5.12.0",
     "next": "14.1.4",
     "next-auth": "^5.0.0-beta.16",
     "react": "^18",
@@ -31,7 +25,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "postcss": "^8",
-    "prisma": "^5.12.1",
+    "prisma": "5.12.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

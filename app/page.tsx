@@ -1,4 +1,5 @@
 import Home from "@/components/pages/Home";
+// import HorizontalScrollBar from "@/components/pages/HorizontalScrollBar";
 import Link from "next/link";
 // import Header from '@/components/molecules/Header'
 // import { auth } from "@/auth";
@@ -9,6 +10,8 @@ const page = async () => {
   return (
     <div>
       <Home/>
+      {/* <HorizontalScrollBar /> */}
+
       <div className="w-full max-w-screen-xl h-screen  bg-zinc-800 text-white bg-transprant bg-blend-overlay  flex-col items-center justify-center align-middle hidden">
       <div className="flex flex-col justify-center align-middle items-center max-w-5xl">
         <button className="text-lg bg-zinc-800 border border-gray-700 text-gray-200 w-fit px-3 rounded-full bg-opacity-75  text-center m-1  ">

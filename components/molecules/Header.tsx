@@ -1,39 +1,43 @@
-"use client"
+import Button from "@/components/atoms/Button";
+import { auth } from "@/auth";
+import Image from "next/image";
 import Link from "next/link";
-import Button from "../atoms/Button";
 
-import { useState } from "react";
-
-const Header = () => {
-  const [isBreadcrumbOpen, setIsBreadcrumbOpen] = useState(false);
-
-  const toggleBreadcrumb = () => {
-    setIsBreadcrumbOpen(!isBreadcrumbOpen);
-  }
+const Header = async () => {
+  const session = await auth();
   return (
-    <nav className="bg-white shadow-lg">
-        <div className="md:flex items-center justify-between py-2 px-8 md:px-12">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold text-gray-800 md:text-3xl">
-              <a href="#">Brand</a>
-            </div>
-            <div className="md:hidden">
-              <button type="button" className="block text-gray-800 hover:text-gray-700 focus:text-gray-700 focus:outline-none" onClick={toggleBreadcrumb}>
-                <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                  <path className="hidden" d="M16.24 14.83a1 1 0 0 1-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 0 1-1.41-1.41L10.59 12 7.76 9.17a1 1 0 0 1 1.41-1.41L12 10.59l2.83-2.83a1 1 0 0 1 1.41 1.41L13.41 12l2.83 2.83z" />
-                  <path d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
-                </svg>
-              </button>
-            </div>
+    <nav className="bg-white w-full  ">
+      <div className="md:flex items-center justify-between py-3 px-4 md:px-8">
+        <div className="flex justify-between items-center w-full">
+          <div className="text-2xl font-bold text-gray-800 md:text-3xl">
+            <Link href="/">
+              portfolio<span className="text-indigo-600">forge</span>
+            </Link>
           </div>
-          <div className={`${isBreadcrumbOpen ?"hidden":"flex"} flex-col md:flex-row  md:block -mx-2 `}>
-            <a href="#" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</a>
-            <a href="#" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">About</a>
-            <a href="#" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Contact</a>
+          <div className="flex flex-row  align-middle text-center">
+            {/* <Button text="Home" href="/" /> */}
+            <Button text="Dashboard" href="/dashboard" />
+            {session ? (
+              <>
+                <Button text="Signout" href="/auth/signout" />
+                <Image
+                  src={
+                    session?.user?.image ||
+                    "https://source.boringavatars.com/beam/120"
+                  }
+                  alt={session?.user?.name || ""}
+                  width={40}
+                  height={40}
+                  className=" bg-cover rounded-full"
+                />
+              </>
+            ) : (
+              <Button text="Signin" href="/auth/signin" />
+            )}
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
   );
 };
-
 export default Header;
