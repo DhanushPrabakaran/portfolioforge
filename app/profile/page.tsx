@@ -1,17 +1,20 @@
+import Button from "@/components/atoms/Button";
 import Form from "@/components/pages/Form";
 import React from "react";
 
 const page = () => {
   return (
-    <div className=" w-full h-screen grid grid-flow-col grid-cols-5 ">
-      <div className=" bg-[#edf2f7] w-full h-full col-span-auto">
+    <div className="flex">
+      <div className="flex-1 flex-col flex justify-center items-center">
       {[...Array(20)].map((_, index) => (
-              <div key={index} className="mb-2">
-                Item {index + 1}
-              </div>
-            ))}
+        <div key={index} className="mb-2">
+          <Button text={"button"} />
+        </div>
+      ))}
       </div>
-      <div className=" w-full h-full col-span-4"><Form/></div>
+      <div className=" flex-auto">
+        <Form />
+      </div>
     </div>
   );
 };
