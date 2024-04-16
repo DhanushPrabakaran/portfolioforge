@@ -1,27 +1,27 @@
-import { Schema, model, models } from "mongoose";
+// import { Schema, model, models } from "mongoose";
 
-const TodoSchema = new Schema({
-  creator: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-  todoTitle: {
-    type: String,
-    required: [true, "todoTitle is required."],
-  },
+// const TodoSchema = new Schema({
+//   creator: {
+//     type: Schema.Types.ObjectId,
+//     ref: "User",
+//   },
+//   todoTitle: {
+//     type: String,
+//     required: [true, "todoTitle is required."],
+//   },
 
-  todoDescription: {
-    type: String,
-    required: [true, "todoDescription is required."],
-  },
+//   todoDescription: {
+//     type: String,
+//     required: [true, "todoDescription is required."],
+//   },
 
-  isComplete: {
-    type: Boolean,
-    default: false,
-  },
+//   isComplete: {
+//     type: Boolean,
+//     default: false,
+//   },
 
-});
+// });
 
-const Todo = models.Todo || model("Todo", TodoSchema);
+// const Todo = models.Todo || model("Todo", TodoSchema);
 
-export default Todo;
+// export default Todo;
