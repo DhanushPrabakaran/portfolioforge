@@ -2,9 +2,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div
-    className=''>
-      
+    <div>
+      Project Home
     </div>
   )
 }
