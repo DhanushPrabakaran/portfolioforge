@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-row justify-evenly p-10 bg-zinc-800 text-base-content  border-t-2 border-gray-700 text-gray-600">
+    <footer className="flex w-full flex-row justify-evenly p-10 bg-zinc-800  border-t-2 border-gray-700 text-gray-600">
       <nav className=" flex flex-col">
         <h6 className="font-bold">Services</h6>
         <div className="link link-hover">Branding</div>

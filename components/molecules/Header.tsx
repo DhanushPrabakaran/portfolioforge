@@ -15,7 +15,7 @@ const Header = async () => {
             </Link>
           </div>
           <div className="flex flex-row  align-middle text-center">
-            {/* <Button text="Home" href="/" /> */}
+            
             <Button text="Dashboard" href="/dashboard" />
             {session ? (
               <>

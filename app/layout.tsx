@@ -4,6 +4,8 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import Header from "@/components/molecules/Header";
 import Footer from "@/components/molecules/Footer";
+import Header2 from "@/components/molecules/Header2";
+import Drawer from "@/components/molecules/Drawer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} `}>
-        <Header />
+        <Header2 />
+        <Drawer/>
         {children}
         {/* <Footer /> */}
       </body>

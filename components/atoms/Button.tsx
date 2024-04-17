@@ -4,7 +4,7 @@ const Button = ({ text, href }: { text: string; href?: string }) => {
   return (
     <Link
       href={`${href}`}
-      className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2"
+      className="m-1 btn rounded hover:bg-gray-900 hover:text-white  hover:font-medium py-2 px-2 md:mx-2 w-full" 
     >
       {text}
     </Link>
@@ -12,5 +12,3 @@ const Button = ({ text, href }: { text: string; href?: string }) => {
 };
 
 export default Button;
-
-// <Link href="#" className="text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium py-2 px-2 md:mx-2">Home</Link>
