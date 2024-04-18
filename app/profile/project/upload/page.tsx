@@ -1,36 +1,34 @@
-"use client";
+"use client"
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
-interface FormValues {
-  username: string;
-  displayName: string;
-  occupation: string;
-  location: string;
-  pronouns: string;
-  website: string;
-  about: string;
+interface ProjectFormValues {
+  title: string;
+  year: string;
+  company: string;
+  link: string;
+  collaborators: string;
+  description: string;
 }
 
 const Page: React.FC = () => {
-  const [formData, setFormData] = useState<FormValues>({
-    username: '',
-    displayName: '',
-    occupation: '',
-    location: '',
-    pronouns: '',
-    website: '',
-    about: '',
+  const [projectFormData, setProjectFormData] = useState<ProjectFormValues>({
+    title: '',
+    year: '',
+    company: '',
+    link: '',
+    collaborators: '',
+    description: '',
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleProjectChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setProjectFormData({
+      ...projectFormData,
       [name]: value,
     });
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleProjectSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
@@ -39,141 +37,106 @@ const Page: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(projectFormData),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit form');
+        throw new Error('Failed to submit project form');
       }
 
       // Handle success response
-      console.log('Form submitted successfully');
+      console.log('Project form submitted successfully');
     } catch (error) {
       // Handle error
-      console.error('Error submitting form:', error);
+      console.error('Error submitting project form:', error);
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">Profile Information</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-8">
+      <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+      <form onSubmit={handleProjectSubmit} className="space-y-4">
         <div>
-          <label
-            htmlFor="username"
-            className="block text-sm font-medium text-gray-700"
-          >
-            What is your name?
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+            Title *
           </label>
           <input
             type="text"
-            name="username"
-            id="username"
-            value={formData.username}
-            onChange={handleChange}
+            name="title"
+            id="title"
+            value={projectFormData.title}
+            onChange={handleProjectChange}
             required
             className="input input-bordered input-sm w-full my-2"
           />
         </div>
         <div>
-          <label
-            htmlFor="displayName"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Display name *
+          <label htmlFor="year" className="block text-sm font-medium text-gray-700">
+            Year *
           </label>
           <input
             type="text"
-            name="displayName"
-            id="displayName"
-            value={formData.displayName}
-            onChange={handleChange}
+            name="year"
+            id="year"
+            value={projectFormData.year}
+            onChange={handleProjectChange}
             required
             className="input input-bordered input-sm w-full my-2"
           />
         </div>
         <div>
-          <label
-            htmlFor="occupation"
-            className="block text-sm font-medium text-gray-700"
-          >
-            What do you do?
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700">
+            Company or client
           </label>
           <input
             type="text"
-            name="occupation"
-            id="occupation"
-            value={formData.occupation}
-            onChange={handleChange}
+            name="company"
+            id="company"
+            value={projectFormData.company}
+            onChange={handleProjectChange}
             className="input input-bordered input-sm w-full my-2"
           />
         </div>
         <div>
-          <label
-            htmlFor="location"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Location
-          </label>
-          <input
-            type="text"
-            name="location"
-            id="location"
-            value={formData.location}
-            onChange={handleChange}
-            className="input input-bordered input-sm w-full my-2"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="pronouns"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Pronouns
-          </label>
-          <input
-            type="text"
-            name="pronouns"
-            id="pronouns"
-            value={formData.pronouns}
-            onChange={handleChange}
-            className="input input-bordered input-sm w-full my-2"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="website"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Website
+          <label htmlFor="link" className="block text-sm font-medium text-gray-700">
+            Link to project
           </label>
           <input
             type="url"
-            name="website"
-            id="website"
-            value={formData.website}
-            onChange={handleChange}
+            name="link"
+            id="link"
+            value={projectFormData.link}
+            onChange={handleProjectChange}
             className="input input-bordered input-sm w-full my-2"
           />
         </div>
         <div>
-          <label
-            htmlFor="about"
-            className="block text-sm font-medium text-gray-700"
-          >
-            About
+          <label htmlFor="collaborators" className="block text-sm font-medium text-gray-700">
+            Collaborators
           </label>
-          <textarea name="about"
-            id="about"
-            value={formData.about}
-            onChange={handleChange}
-             className="textarea textarea-bordered w-full my-2" placeholder="Bio"></textarea>
+          <input
+            type="text"
+            name="collaborators"
+            id="collaborators"
+            value={projectFormData.collaborators}
+            onChange={handleProjectChange}
+            className="input input-bordered input-sm w-full my-2"
+          />
         </div>
-        <button
-          type="submit"
-          className='btn'
-          // className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
+        <div>
+          <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+            Description
+          </label>
+          <textarea
+            name="description"
+            id="description"
+            value={projectFormData.description}
+            onChange={handleProjectChange}
+            className="textarea textarea-bordered w-full my-2"
+            placeholder="Add some details"
+          ></textarea>
+        </div>
+        <button type="submit" className="btn">
           Submit
         </button>
       </form>
