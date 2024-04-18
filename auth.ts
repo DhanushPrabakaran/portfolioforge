@@ -5,7 +5,9 @@ import Google from "next-auth/providers/google";
 export const { handlers, auth, signIn, signOut } = NextAuth({
   basePath: "/auth",
   
-  providers: [Google, GitHub],
+  providers: [
+    // Google,
+     GitHub],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
      

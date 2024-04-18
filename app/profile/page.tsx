@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
 interface FormValues {
   username: string;
@@ -10,19 +10,20 @@ interface FormValues {
   website: string;
   about: string;
 }
-
 const Page: React.FC = () => {
   const [formData, setFormData] = useState<FormValues>({
-    username: '',
-    displayName: '',
-    occupation: '',
-    location: '',
-    pronouns: '',
-    website: '',
-    about: '',
+    username: "",
+    displayName: "",
+    occupation: "",
+    location: "",
+    pronouns: "",
+    website: "",
+    about: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -32,25 +33,24 @@ const Page: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
     try {
-      const response = await fetch('your-backend-endpoint', {
-        method: 'POST',
+      const response = await fetch("your-backend-endpoint", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit form');
+        throw new Error("Failed to submit form");
       }
 
       // Handle success response
-      console.log('Form submitted successfully');
+      console.log("Form submitted successfully");
     } catch (error) {
       // Handle error
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
     }
   };
 
@@ -71,6 +71,7 @@ const Page: React.FC = () => {
             id="username"
             value={formData.username}
             onChange={handleChange}
+            placeholder="John Doe"
             required
             className="input input-bordered input-sm w-full my-2"
           />
@@ -80,7 +81,7 @@ const Page: React.FC = () => {
             htmlFor="displayName"
             className="block text-sm font-medium text-gray-700"
           >
-            Display name *
+            Display name*
           </label>
           <input
             type="text"
@@ -88,6 +89,7 @@ const Page: React.FC = () => {
             id="displayName"
             value={formData.displayName}
             onChange={handleChange}
+            placeholder="Tech Doe"
             required
             className="input input-bordered input-sm w-full my-2"
           />
@@ -103,6 +105,8 @@ const Page: React.FC = () => {
             type="text"
             name="occupation"
             id="occupation"
+            required
+            placeholder="Full Stack Developer"
             value={formData.occupation}
             onChange={handleChange}
             className="input input-bordered input-sm w-full my-2"
@@ -119,12 +123,14 @@ const Page: React.FC = () => {
             type="text"
             name="location"
             id="location"
+            required
+            placeholder="D.No.71A,Brookside,AL,United States,United States"
             value={formData.location}
             onChange={handleChange}
             className="input input-bordered input-sm w-full my-2"
           />
         </div>
-        <div>
+        {/* <div>
           <label
             htmlFor="pronouns"
             className="block text-sm font-medium text-gray-700"
@@ -139,7 +145,7 @@ const Page: React.FC = () => {
             onChange={handleChange}
             className="input input-bordered input-sm w-full my-2"
           />
-        </div>
+        </div> */}
         <div>
           <label
             htmlFor="website"
@@ -148,9 +154,11 @@ const Page: React.FC = () => {
             Website
           </label>
           <input
+            required
             type="url"
             name="website"
             id="website"
+            placeholder="https://example.com"
             value={formData.website}
             onChange={handleChange}
             className="input input-bordered input-sm w-full my-2"
@@ -163,17 +171,17 @@ const Page: React.FC = () => {
           >
             About
           </label>
-          <textarea name="about"
+          <textarea
+            name="about"
             id="about"
             value={formData.about}
             onChange={handleChange}
-             className="textarea textarea-bordered w-full my-2" placeholder="Bio"></textarea>
+            className="textarea textarea-bordered w-full my-2"
+            placeholder="Bio"
+            required
+          ></textarea>
         </div>
-        <button
-          type="submit"
-          className='btn'
-          // className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
+        <button type="submit" className="btn">
           Submit
         </button>
       </form>
