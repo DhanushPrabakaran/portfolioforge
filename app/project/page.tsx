@@ -50,6 +50,7 @@ const Page: React.FC = () => {
       }
 
       // Handle success response
+      
       console.log("Project form submitted successfully");
     } catch (error) {
       // Handle error
