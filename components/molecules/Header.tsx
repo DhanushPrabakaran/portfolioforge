@@ -8,22 +8,23 @@ const Header = async () => {
   return (
     <div className="navbar bg-base-100 flex flex-row justify-between">
       <div className="">
+      {session?
         <button className="btn btn-square btn-ghost">
-          <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block w-5 h-5 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </label>
-        </button>
+        <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            className="inline-block w-5 h-5 stroke-current"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </label>
+      </button> : null}
       </div>
       {/* <div className="flex-1"> */}
       <div className="text-2xl font-bold text-gray-800 md:text-3xl">

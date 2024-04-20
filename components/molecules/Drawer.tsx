@@ -11,9 +11,10 @@ const Drawer = () => {
         <ul className="menu items-center text-start  p-4 w-44 h-full bg-base-200 text-base-content opacity-80 justify-">
           <Button text={"🏠Home"} href="/"/>
           <Button text={"🏠Profile"} href="/profile"/>
-          <Button text={"🏠Project"} href="/profile/project"/>
-          <Button text={"🏠Experience"} href="/profile/experience"/>
-          <Button text={"🏠Message"} href="/profile/message"/>
+          <Button text={"🏠Project"} href="/project"/>
+          <Button text={"🏠Experience"} href="/experience"/>
+          <Button text={"🏠Message"} href="/message"/>
+          <Button text={"Dashboard"} href="/dashboard"/>
         </ul>
       </div>
     </div>

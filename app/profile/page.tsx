@@ -1,24 +1,42 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
+import { useSession } from "next-auth/react"
+
+// model User {
+  //  . id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  //   >email      String       @unique
+  //   >name       String?
+  //   >Dname      String?
+  //   >role       String
+  //   >image      String
+  //   website    String
+  //   about      String
+  //   projects   Project[]
+  //   experience Experience[]
+  // }
 interface FormValues {
-  username: string;
-  displayName: string;
-  occupation: string;
-  location: string;
-  pronouns: string;
+  name: string;
+  Dname: string;
+  role: string;
+  // pronouns: string;
   website: string;
   about: string;
+  email:string;
+  image:string;
 }
+
 const Page: React.FC = () => {
+  const session = useSession();
   const [formData, setFormData] = useState<FormValues>({
-    username: "",
-    displayName: "",
-    occupation: "",
-    location: "",
-    pronouns: "",
+    name: session?.data?.user?.name || "",
+    Dname:  "",
+    role: "",
+    // pronouns: "",
     website: "",
     about: "",
+    email: session?.data?.user?.email || "",
+    image:session?.data?.user?.image || "",
   });
 
   const handleChange = (
@@ -34,7 +52,7 @@ const Page: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("your-backend-endpoint", {
+      const response = await fetch("/api/profile", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,16 +78,16 @@ const Page: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
-            htmlFor="username"
+            htmlFor="name"
             className="block text-sm font-medium text-gray-700"
           >
             What is your name?
           </label>
           <input
             type="text"
-            name="username"
-            id="username"
-            value={formData.username}
+            name="name"
+            id="name"
+            value={formData.name}
             onChange={handleChange}
             placeholder="John Doe"
             required
@@ -78,16 +96,16 @@ const Page: React.FC = () => {
         </div>
         <div>
           <label
-            htmlFor="displayName"
+            htmlFor="Dname"
             className="block text-sm font-medium text-gray-700"
           >
             Display name*
           </label>
           <input
             type="text"
-            name="displayName"
-            id="displayName"
-            value={formData.displayName}
+            name="Dname"
+            id="Dname"
+            value={formData.Dname}
             onChange={handleChange}
             placeholder="Tech Doe"
             required
@@ -96,23 +114,23 @@ const Page: React.FC = () => {
         </div>
         <div>
           <label
-            htmlFor="occupation"
+            htmlFor="role"
             className="block text-sm font-medium text-gray-700"
           >
             What do you do?
           </label>
           <input
             type="text"
-            name="occupation"
-            id="occupation"
+            name="role"
+            id="role"
             required
             placeholder="Full Stack Developer"
-            value={formData.occupation}
+            value={formData.role}
             onChange={handleChange}
             className="input input-bordered input-sm w-full my-2"
           />
         </div>
-        <div>
+        {/* <div>
           <label
             htmlFor="location"
             className="block text-sm font-medium text-gray-700"
@@ -129,7 +147,7 @@ const Page: React.FC = () => {
             onChange={handleChange}
             className="input input-bordered input-sm w-full my-2"
           />
-        </div>
+        </div> */}
         {/* <div>
           <label
             htmlFor="pronouns"

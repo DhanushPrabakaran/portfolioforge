@@ -1,18 +1,28 @@
-// 'use client';
+type Props = {
+  children: React.ReactNode,
+}
 
-// import React from "react";
-// import { SessionProvider } from "next-auth/react";
-// import { Session } from "next-auth";
 
-// const AuthSessionProvider = ({ children, session }: Props) => (
-//   <SessionProvider session={session}>
-//     {children}
-//   </SessionProvider>
-// )
 
-// type Props = {
-//   children: React.ReactNode,
-//   session: Session | null
-// }
+import {auth} from "@/auth"
+// import ClientExample from "@/components/client-example"
+import { SessionProvider } from "next-auth/react"
 
-// export default AuthSessionProvider;
+export default async function AuthSessionProvider({ children }: Props) {
+  const session = await auth()
+  if (session?.user) {
+    // TODO: Look into https://react.dev/reference/react/experimental_taintObjectReference
+    // filter out sensitive data before passing to client.
+    session.user = {
+      name: session.user.name,
+      email: session.user.email,
+      image: session.user.image,
+    }
+  }
+
+  return (
+    <SessionProvider basePath={"/auth"} session={session}>
+      {children}
+    </SessionProvider>
+  )
+}

@@ -1,21 +1,10 @@
-// pages/index.js
-// "use client"
-
 import React, { useState } from "react";
-import VerticalScrollBar from "@/components/pages/VerticalScrollBar";
-import Drawer from "../molecules/Drawer";
 
 const Home = () => {
-  // const [isOpen, setIsOpen] = useState(true);
-
-  // const toggleMenu = () => {
-  //   setIsOpen(!isOpen);
-  // };
 
   return (
     <div
       className="h-full max-w-screen w-full flex items-center justify-center bg-base-100 text-base-content select-none"
-      // style={{ background: "#edf2f7" }}
     >
       <div className="w-full">
         

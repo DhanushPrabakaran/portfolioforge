@@ -1,4 +1,3 @@
-// import Head from "next/head";
 import React from "react";
 
 const Login = () => {
@@ -11,7 +10,8 @@ const Login = () => {
             backgroundImage:
               'url("https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80")',
           }}
-        ></div>
+        >
+        </div>
         <div className="w-full p-8 ">
           <h2 className="text-2xl font-semibold text-gray-700 text-center">
             Brand

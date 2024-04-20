@@ -6,11 +6,6 @@ const Form = () => {
       className="h-full items-center flex flex-col justify-center"
       style={{ background: "#edf2f7" }}
     >
-      {/* <div className="md:flex">
-        <h2 className="uppercase tracking-wide text-sm sm:text-lg ">
-          Create New Location
-        </h2>
-      </div> */}
       <form>
         <div className="md:flex mb-8">
           <div className="md:w-1/3">

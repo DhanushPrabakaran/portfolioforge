@@ -1,6 +1,5 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/utils/prisma';
 
-const prisma = new PrismaClient();
 
 // Create operation examples
 
@@ -23,7 +22,6 @@ async function createExperience() {
       from: 'January 2022',
       end: 'Present',
       Title: 'Software Engineer',
-      // Add other fields as needed
     },
   });
   console.log('Created experience:', newExperience);
@@ -38,13 +36,13 @@ async function createUser() {
       image: 'https://example.com/avatar.jpg',
       website: 'https://example.com',
       about: 'About John Doe',
-      // Add other fields as needed
+      
     },
   });
   console.log('Created user:', newUser);
 }
 
-// Read operation examples
+
 
 async function getProjectById(id: string) {
   const project = await prisma.project.findUnique({
@@ -71,14 +69,14 @@ async function getUserById(id: string) {
   console.log('User:', user);
 }
 
-// Update operation examples
+
 
 async function updateProject(id: string) {
   const updatedProject = await prisma.project.update({
     where: { id },
     data: {
       title: 'Updated Title',
-      // Add other fields to update
+     
     },
   });
   console.log('Updated project:', updatedProject);
@@ -141,3 +139,4 @@ updateUser('user-id');
 deleteProject('project-id');
 deleteExperience('experience-id');
 deleteUser('user-id');
+
