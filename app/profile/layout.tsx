@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter,Bakbak_One } from 'next/font/google'
+import { Bakbak_One } from 'next/font/google'
 
 
 const inter = Bakbak_One({

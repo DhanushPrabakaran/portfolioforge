@@ -7,7 +7,13 @@ import Footer from "@/components/molecules/Footer";
 import Drawer from "@/components/molecules/Drawer";
 import AuthSessionProvider from "@/providers/AuthSessionProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Bakbak_One } from 'next/font/google'
+
+
+const inter = Bakbak_One({
+  weight:[ '400'],
+  subsets:['devanagari'],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
