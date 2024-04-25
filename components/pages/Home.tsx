@@ -24,7 +24,7 @@ const Home = () => {
               </p>
               <div className="flex justify-center lg:justify-start mt-6">
                 <a
-                  className="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
+                  className="px-4 py-3 bg-gray-100 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
                   href="#"
                 >
                   Get Started
@@ -49,7 +49,7 @@ const Home = () => {
                   "url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80)",
               }}
             >
-              <div className="h-full bg-black opacity-25"></div>
+              <div className="h-full bg-gray-100 opacity-25"></div>
             </div>
           </div>
         </div>

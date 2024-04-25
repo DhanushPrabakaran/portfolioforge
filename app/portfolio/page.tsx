@@ -7,13 +7,13 @@ import Projects from "@/components/pages/portfolio/Projects";
 export default function Home() {
 
   return (
-    <div>
-      <Header/>
+    <>
+      {/* <Header/> */}
       <Hero/>
       <About/>
       <Projects/>
       <Footer/>
-    </div>
+    </>
 
   )
 }

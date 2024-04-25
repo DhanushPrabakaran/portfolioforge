@@ -19,10 +19,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return baseUrl;
     },
     async session({ session, user, token }) {
-      
+      console.log(session,user,token);
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {
+      console.log(profile);
       return token;
     },
   },
