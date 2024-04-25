@@ -30,9 +30,13 @@ const DashboardPage: NextPage = () => {
     return experiences.map((experience) => (
       <div key={experience.id} className="bg-white shadow-md p-4 mb-4">
         <h3 className="text-lg font-semibold">{experience.Title}</h3>
+<<<<<<< HEAD
         <div>
           <p className="text-gray-500">{experience.Description}</p>
         </div>
+=======
+        <p className="text-gray-500">{experience.Description}</p>
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
       </div>
     ));
   };
@@ -42,17 +46,99 @@ const DashboardPage: NextPage = () => {
     return messages.map((message) => (
       <div key={message.id} className="bg-white shadow-md p-4 mb-4">
         <h3 className="text-lg font-semibold">{message.sender}</h3>
+<<<<<<< HEAD
         <div>
           <p className="text-gray-500">{message.content}</p>
           <p>{message.timestamp.toLocaleString()}</p>
         </div>
+=======
+        <p className="text-gray-500">{message.content}</p>
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
       </div>
     ));
   };
 
   return (
     <div className="bg-gray-100 min-h-screen">
+<<<<<<< HEAD
       <div className="container mx-auto ">
+=======
+      {/* <Head>
+        <title>Dashboard</title>
+        <meta name="description" content="User Dashboard" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head> */}
+
+      <div className="container mx-auto ">
+        {/* <h1 className="text-3xl font-semibold mb-8">Dashboard</h1> */}
+
+        {/* <div className="grid grid-cols-1 lg:grid-cols-1 gap-8"> */}
+        {/* Profile section
+          <section className="bg-white shadow-md  rounded-lg">
+            {/* <div className="grid grid-cols-3 gap-4">
+              <div className="col-span-1  align-middle flex justify-center items-center">
+                
+
+                <Image
+                  src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
+                  alt="Profile Picture"
+                  width={100}
+                  height={100}
+                  className="rounded-full"
+                />
+              </div>
+
+              <div className="col-span-2">
+                <h2 className="text-xl font-semibold">{user.name}</h2>
+                <p className="text-gray-600">{user.role}</p>
+                <p className="text-gray-600">{user.email}</p>
+                <p className="text-gray-600">{user.website}</p>
+                <p className="text-gray-600">{user.about}</p>
+                <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2">
+                  Edit Profile
+                </button>
+              </div>
+            </div> */}
+        {/*<div className="w-full h-[250px] relative">
+              <Image
+                src={Banner}
+                // "https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg"
+                alt="Profile Background"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-tl-lg rounded-tr-lg"
+              />
+            </div>
+            <div className="flex flex-col items-center -mt-20">
+              <div className="relative">
+                <div className=" w-40 h-40 rounded-full overflow-hidden border-4 border-white">
+                  <Image
+                    src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
+                    alt="Profile Picture"
+                    layout="fill"
+                    objectFit="cover"
+                    className="  rounded-full border-4 border-white"
+                  />
+                </div>
+              </div>
+              <div className="flex items-center space-x-2 mt-2">
+                <p className="text-2xl">{user.name}</p>
+              </div>
+              <p className="text-gray-700">{user.role}</p>
+              <p className="text-gray-600">{user.email}</p>
+              <p className="text-gray-600 text-center">{user.about}</p>
+              <p className="text-gray-600">{user.website}</p>
+              <p className="text-sm text-gray-500">New York, USA</p>
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2">
+                Edit Profile
+              </button>
+              {/* /</div> */}
+        {/* </div> */}
+        {/* Add more profile details like skills, bio, etc. */}
+        {/*</section> */}
+        {/* Profile section */}
+
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
         <section className="bg-white shadow-md rounded-lg mb-4 pb-2">
           <div className="relative h-32 md:h-48 rounded-t-lg overflow-hidden">
             <Image
@@ -92,6 +178,7 @@ const DashboardPage: NextPage = () => {
           </div>
           {/* Add more profile details like skills, bio, etc. */}
         </section>
+<<<<<<< HEAD
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-2 max-w-1/2">
           {/* Projects section */}
           <section className="bg-white shadow-md p-4 rounded-lg ">
@@ -108,6 +195,13 @@ const DashboardPage: NextPage = () => {
                 <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Zm4-9H13V8a1,1,0,0,0-2,0v3H8a1,1,0,0,0,0,2h3v3a1,1,0,0,0,2,0V13h3a1,1,0,0,0,0-2Z"></path>
               </svg>
             </div>
+=======
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-2">
+          {/* Projects section */}
+          <section className="bg-white shadow-md p-4 rounded-lg">
+            <h2 className="text-xl font-semibold mb-4">Projects</h2>
+            {projects.length > 0 ? renderProjects() : <p>No projects found.</p>}
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
           </section>
 
           {/* Experiences section */}
@@ -119,6 +213,7 @@ const DashboardPage: NextPage = () => {
               <p>No experiences found.</p>
             )}
           </section>
+<<<<<<< HEAD
           <section className="bg-white shadow-md p-4 rounded-lg flex flex-col justify-between">
             <div className="">
               <div className="flex items-center justify-between">
@@ -127,12 +222,27 @@ const DashboardPage: NextPage = () => {
                 </span>
                 <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
                   from start
+=======
+          <section>
+            {/* <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4"> */}
+            <div className="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-sm text-indigo-600">
+                  Total Revenue
+                </span>
+                <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
+                  7 days
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                 </span>
               </div>
               <div className="flex items-center justify-between mt-6">
                 <div>
                   <svg
+<<<<<<< HEAD
                     className="w-12 h-12 p-2.5 bg-blue-400 bg-opacity-20 rounded-full text-blue-600 border border-blue-600"
+=======
+                    className="w-12 h-12 p-2.5 bg-indigo-400 bg-opacity-20 rounded-full text-indigo-600 border border-indigo-600"
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -142,19 +252,48 @@ const DashboardPage: NextPage = () => {
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="1"
+<<<<<<< HEAD
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+=======
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                     ></path>
                   </svg>
                 </div>
                 <div className="flex flex-col">
                   <div className="flex items-end">
                     <span className="text-2xl 2xl:text-3xl font-bold">
+<<<<<<< HEAD
                       8,141
                     </span>
+=======
+                      $8,141
+                    </span>
+                    <div className="flex items-center ml-2 mb-1">
+                      <svg
+                        className="w-5 h-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                        ></path>
+                      </svg>
+                      <span className="font-bold text-sm text-gray-500 ml-0.5">
+                        3%
+                      </span>
+                    </div>
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                   </div>
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             <div className="">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-sm text-green-600">
@@ -162,6 +301,15 @@ const DashboardPage: NextPage = () => {
                 </span>
                 <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
                   from start
+=======
+            <div className="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-sm text-green-600">
+                  New Orders
+                </span>
+                <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
+                  7 days
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                 </span>
               </div>
               <div className="flex items-center justify-between mt-6">
@@ -170,6 +318,7 @@ const DashboardPage: NextPage = () => {
                     className="w-12 h-12 p-2.5 bg-green-400 bg-opacity-20 rounded-full text-green-600 border border-green-600"
                     fill="none"
                     stroke="currentColor"
+<<<<<<< HEAD
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
                     id="message"
@@ -178,20 +327,60 @@ const DashboardPage: NextPage = () => {
                       <path d="M24 7H8a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h1v4a1 1 0 0 0 1.61.79L16.77 23H24a3 3 0 0 0 3-3V10a3 3 0 0 0-3-3Zm1 13a1 1 0 0 1-1 1h-7.57a1 1 0 0 0-.61.21L11 25v-3a1 1 0 0 0-1-1H8a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1Z"></path>
                       <path d="M11 14h6a1 1 0 0 0 0-2h-6a1 1 0 0 0 0 2zm10 2H11a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z"></path>
                     </g>
+=======
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                    ></path>
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                   </svg>
                 </div>
                 <div className="flex flex-col">
                   <div className="flex items-end">
                     <span className="text-2xl 2xl:text-3xl font-bold">217</span>
+<<<<<<< HEAD
+=======
+                    <div className="flex items-center ml-2 mb-1">
+                      <svg
+                        className="w-5 h-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                        ></path>
+                      </svg>
+                      <span className="font-bold text-sm text-gray-500 ml-0.5">
+                        5%
+                      </span>
+                    </div>
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                   </div>
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             <div>
               {/* <div className="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl"> */}
               <div className="flex items-center justify-between">
                 <span className="font-bold text-sm text-blue-600">
                   Weekly views
+=======
+            <div className="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-sm text-blue-600">
+                  New Connections
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                 </span>
                 <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
                   7 days
@@ -217,7 +406,11 @@ const DashboardPage: NextPage = () => {
                 <div className="flex flex-col">
                   <div className="flex items-end">
                     <span className="text-2xl 2xl:text-3xl font-bold">54</span>
+<<<<<<< HEAD
                     {/* <div className="flex items-center ml-2 mb-1">
+=======
+                    <div className="flex items-center ml-2 mb-1">
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                       <svg
                         className="w-5 h-5 text-green-500"
                         fill="none"
@@ -235,7 +428,11 @@ const DashboardPage: NextPage = () => {
                       <span className="font-bold text-sm text-gray-500 ml-0.5">
                         7%
                       </span>
+<<<<<<< HEAD
                     </div> */}
+=======
+                    </div>
+>>>>>>> 077e25a04b3a851b2e3a5fb2a778f57903c56120
                   </div>
                 </div>
               </div>
