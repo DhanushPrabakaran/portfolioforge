@@ -235,13 +235,13 @@ const DashboardPage: NextPage = () => {
           </p>
           <div className="hidden  group-hover:flex items-center justify-end w-full duration-1000">
             <Link
-              className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
+              className="text-xs bg-gray-200 hover:bg-violet-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
               href={""}
             >
               update
             </Link>
             <Link
-              className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
+              className=" text-xs bg-gray-200 hover:bg-red-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
               href={""}
             >
               delete
@@ -266,13 +266,13 @@ const DashboardPage: NextPage = () => {
           </p>
           <div className="hidden  group-hover:flex items-center justify-end w-full duration-1000">
             <Link
-              className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
+              className="text-xs bg-gray-200 hover:bg-violet-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
               href={""}
             >
               update
             </Link>
             <Link
-              className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
+              className=" text-xs bg-gray-200 hover:bg-red-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
               href={""}
             >
               delete
@@ -285,11 +285,22 @@ const DashboardPage: NextPage = () => {
 
   const renderMessages = () => {
     return messages.map((message) => (
-      <div key={message.id} className="bg-white shadow-md p-4 mb-4">
+      <div
+        key={message.id}
+        className="bg-white shadow-md p-4 mb-4 group rounded"
+      >
         <h3 className="text-lg font-semibold">{message.sender}</h3>
         <div>
           <p className="text-gray-500">{message.content}</p>
           <p>{message.timestamp.toLocaleString()}</p>
+        </div>
+        <div className="hidden  group-hover:flex items-center justify-end w-full duration-1000">
+          <Link
+            className=" bg-gray-200 hover:bg-red-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
+            href={""}
+          >
+            delete
+          </Link>
         </div>
       </div>
     ));
@@ -316,7 +327,6 @@ const DashboardPage: NextPage = () => {
           </div>
           <div className="flex flex-col items-center -mt-16">
             <div className="relative">
-              
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white">
                 <Image
                   src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
@@ -336,7 +346,10 @@ const DashboardPage: NextPage = () => {
                 {user.about}
               </p>
             </div>
-            <Link href={""} className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4">
+            <Link
+              href={""}
+              className="bg-violet-600 text-white px-4 py-2 rounded-md mt-4"
+            >
               Edit Profile
             </Link>
           </div>
@@ -346,7 +359,10 @@ const DashboardPage: NextPage = () => {
           <section className="bg-white shadow-md p-4 rounded-lg max-h-96 overflow-y-scroll">
             <h2 className="text-xl font-semibold mb-4">Projects</h2>
             {projects.length > 0 ? renderProjects() : <p>No projects found.</p>}
-            <div className="bg-white shadow-md p-4 mb-4 align-middle flex items-center justify-center">
+            <Link
+              className="bg-white shadow-md p-4 mb-4 align-middle flex items-center justify-center"
+              href={"/project"}
+            >
               <svg
                 className="w-12 h-12  fill-slate-200  rounded-full text-gray-200 "
                 viewBox="0 0 24 24"
@@ -355,7 +371,7 @@ const DashboardPage: NextPage = () => {
               >
                 <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Zm4-9H13V8a1,1,0,0,0-2,0v3H8a1,1,0,0,0,0,2h3v3a1,1,0,0,0,2,0V13h3a1,1,0,0,0,0-2Z"></path>
               </svg>
-            </div>
+            </Link>
             {/* Add button or link for adding new projects */}
           </section>
 
@@ -366,7 +382,10 @@ const DashboardPage: NextPage = () => {
             ) : (
               <p>No experiences found.</p>
             )}
-            <div className="bg-white shadow-md p-4 mb-4 align-middle flex items-center justify-center">
+            <Link
+              className="bg-white shadow-md p-4 mb-4 align-middle flex items-center justify-center"
+              href={"/experience"}
+            >
               <svg
                 className="w-12 h-12  fill-slate-200  rounded-full text-gray-200 "
                 viewBox="0 0 24 24"
@@ -375,7 +394,7 @@ const DashboardPage: NextPage = () => {
               >
                 <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Zm4-9H13V8a1,1,0,0,0-2,0v3H8a1,1,0,0,0,0,2h3v3a1,1,0,0,0,2,0V13h3a1,1,0,0,0,0-2Z"></path>
               </svg>
-            </div>
+            </Link>
           </section>
 
           <section className="bg-white shadow-md p-4 rounded-lg flex flex-col justify-between max-h-96">
