@@ -10,7 +10,11 @@ export async function getUserById(id: string): Promise<User | null> {
   return prisma.user.findUnique({ where: { id }, 
 include: { projects: true,experience:true }});
 }
-
+export async function  getUserByEmail(email:string):Promise<User | null> {
+  return  prisma.user.findUnique({where:{email}
+    // ,include: { projects: true,experience:true }});
+  })
+}
 export async function updateUser(id: string, data: Partial<User>): Promise<User | null> {
   return prisma.user.update({ where: { id }, data });
 }

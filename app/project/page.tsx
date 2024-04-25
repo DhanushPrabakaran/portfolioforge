@@ -49,11 +49,8 @@ const Page: React.FC = () => {
         throw new Error("Failed to submit project form");
       }
 
-      // Handle success response
-      
       console.log("Project form submitted successfully");
     } catch (error) {
-      // Handle error
       console.error("Error submitting project form:", error);
     }
   };

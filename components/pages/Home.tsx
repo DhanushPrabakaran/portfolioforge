@@ -1,14 +1,9 @@
 import Link from "next/link";
-import React, { useState } from "react";
 
 const Home = () => {
-
   return (
-    <div
-      className="h-full max-w-screen w-full flex items-center justify-center bg-base-100 text-base-content select-none"
-    >
+    <div className="h-full max-w-screen w-full flex items-center justify-center bg-base-100 text-base-content select-none">
       <div className="w-full">
-        
         <div className="flex bg-white" style={{ height: "600px" }}>
           <div className="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
             <div>

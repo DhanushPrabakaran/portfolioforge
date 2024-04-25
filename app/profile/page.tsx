@@ -1,25 +1,10 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
-
 import { useSession } from "next-auth/react"
-
-// model User {
-  //  . id         String       @id @default(auto()) @map("_id") @db.ObjectId
-  //   >email      String       @unique
-  //   >name       String?
-  //   >Dname      String?
-  //   >role       String
-  //   >image      String
-  //   website    String
-  //   about      String
-  //   projects   Project[]
-  //   experience Experience[]
-  // }
 interface FormValues {
   name: string;
   Dname: string;
   role: string;
-  // pronouns: string;
   website: string;
   about: string;
   email:string;
@@ -32,7 +17,6 @@ const Page: React.FC = () => {
     name: session?.data?.user?.name || "",
     Dname:  "",
     role: "",
-    // pronouns: "",
     website: "",
     about: "",
     email: session?.data?.user?.email || "",

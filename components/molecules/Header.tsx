@@ -1,10 +1,12 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../atoms/Button";
-import { auth } from "@/auth";
-const Header = async () => {
-  const session = await auth();
+import { useSession } from "next-auth/react";
+
+const Header =  () => {
+  const session = useSession();
   return (
     <div className="navbar bg-base-100 flex flex-row justify-between">
       <div className="text-2xl font-bold text-gray-800 md:text-3xl">
@@ -24,10 +26,10 @@ const Header = async () => {
                 <div className="w-10 rounded-full">
                   <Image
                     src={
-                      session?.user?.image ||
+                      session?.data?.user?.image ||
                       "https://source.boringavatars.com/beam/120"
                     }
-                    alt={session?.user?.name || ""}
+                    alt={session?.data?.user?.name || ""}
                     height={50}
                     width={50}
                   />
