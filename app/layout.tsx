@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+
 import "./globals.css";
-// import { SessionProvider } from "next-auth/react";
+
 import Header from "@/components/molecules/Header";
 import Footer from "@/components/molecules/Footer";
-import Drawer from "@/components/molecules/Drawer";
+
 import AuthSessionProvider from "@/providers/AuthSessionProvider";
 
 import { Bakbak_One } from 'next/font/google'
@@ -29,8 +29,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} `}>
         <Header />
-        <Drawer/>
         {children}
+        <Footer/>
       </body>
     </html>
     </AuthSessionProvider>

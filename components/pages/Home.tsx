@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Home = () => {
@@ -23,18 +24,18 @@ const Home = () => {
                 impressing today.
               </p>
               <div className="flex justify-center lg:justify-start mt-6">
-                <a
-                  className="px-4 py-3 bg-gray-100 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
+                <Link
+                  className="px-4 py-3 bg-gray-600 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
                   href="#"
                 >
                   Get Started
-                </a>
-                <a
+                </Link>
+                <Link
                   className="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
                   href="#"
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </div>
           </div>
