@@ -33,7 +33,7 @@ const VerticalScrollBar: React.FC<VerticalScrollBarProps> = () => {
         </div>
       </div>
       <div
-        className={`absolute top-0 right-0 h-screen w-screen bg-black opacity-25 ${
+        className={`absolute top-0 right-0 h-screen w-screen bg-gray-100 opacity-25 ${
           isOpen ? "block" : "hidden"
         } z-40`}
         onClick={toggleMenu}

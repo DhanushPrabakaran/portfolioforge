@@ -24,7 +24,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-black bg-opacity-90 rounded-box w-52 z-10 "
+            className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-gray-100 bg-opacity-90 rounded-box w-52 z-10 "
           >
             <li>
               <a href="#Home"
@@ -79,7 +79,7 @@ const Header = () => {
             <details>
               <summary
               className=" hover:border-x-2 border-[#776fff] hover:text-primary-focus flex-1">Project</summary>
-              <ul className="p-2 bg-black bg-opacity-90">
+              <ul className="p-2 bg-gray-100 bg-opacity-90">
                 <li
                 className="">
                   <a href="#Project1"

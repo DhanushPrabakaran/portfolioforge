@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter,Bakbak_One } from 'next/font/google'
-// import './globals.css'
+
 
 const inter = Bakbak_One({
   weight:[ '400'],

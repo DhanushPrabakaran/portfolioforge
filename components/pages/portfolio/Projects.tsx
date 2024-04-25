@@ -2,7 +2,7 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 const Projects = () => {
     return (
-        <div className="hero min-h-screen  bg-black">
+        <div className="hero min-h-screen  bg-gray-100">
             <div className=" text-center ">
                 {/* <div className=""> */}
                     <h1 className="text-3xl text-neutral-100 lg:text-5xl shadow-inner  font-bold my-4">PROJECTS</h1>
@@ -16,7 +16,7 @@ const Projects = () => {
                         {/* <div className="group  relative inline-block text-sm font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 ">
                             <span className="absolute inset-0 translate-x-0 translate-y-0 bg-indigo-600 transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5 rounded-lg"></span>
 
-                            <span className=" card w-72 relative block  border-current  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-black dark:border-gray-700">
+                            <span className=" card w-72 relative block  border-current  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-700">
                                 <Image
                                     className="rounded-t-lg  h-[200px] opacity-30"
                                     src={iam}
@@ -58,7 +58,7 @@ const Projects = () => {
                                 {/* </div> */}
                             {/* </span> */}
                         {/* </div> */} 
-                        {/* <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-black dark:border-gray-700">
+                        {/* <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-700">
                             <a href="#">
                                 <Image className="rounded-t-lg  h-[200px]" src={iam} alt="" />
                             </a>

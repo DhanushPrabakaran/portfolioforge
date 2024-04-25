@@ -8,7 +8,7 @@ const ProjectCard = () => {
       
                             <span className="  absolute block inset-0  bg-[#776fff] border-[#776fff]  border-2 rounded-lg border-dashed"></span>
 
-                            <span className=" card w-72  relative  border-current transition-transform translate-x-0 translate-y-0  max-w-sm bg-white border border-gray-200 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5 rounded-lg shadow dark:bg-black dark:border-gray-700">
+                            <span className=" card w-72  relative  border-current transition-transform translate-x-0 translate-y-0  max-w-sm bg-white border border-gray-200 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5 rounded-lg shadow dark:bg-gray-100 dark:border-gray-700">
                                 <Image
                                     className="rounded-t-lg  h-[200px] opacity-30"
                                     src={iam}

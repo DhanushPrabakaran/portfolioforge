@@ -6,17 +6,17 @@ import Profile from "@/public/Profile picture.png";
 const About = () => {
   return (
     <div
-      className="hero bg-black"
+      className="hero bg-gray-100"
    
     >
-      <div className="hero-overlay bg-opacity-60 bg-black"></div>
+      <div className="hero-overlay bg-opacity-60 bg-gray-100"></div>
       {/* <div className="hero-content text-center w-full"> */}
       <div className="   flex justify-center items-center flex-col flex-wrap">
         <h1 className="text-3xl text-neutral-100 lg:text-5xl shadow-inner  font-bold  ">
           ABOUT ME !
         </h1>
         <div className="   flex items-center flex-col justify-center  ">
-          <div className=" h-fit   card w-full bg-black ">
+          <div className=" h-fit   card w-full bg-gray-100 ">
             {/* <Image
                 src={Profile}
                 alt="Computer"
@@ -39,7 +39,7 @@ const About = () => {
                     <foreignObject
                       width="655"
                       height="680"
-                      className="bg-black"
+                      className="bg-gray-100"
                     >
                       <Image
                         alt=""

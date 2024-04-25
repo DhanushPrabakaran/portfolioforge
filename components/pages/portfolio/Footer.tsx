@@ -9,7 +9,7 @@ import Spotif from "@/public/icon/spotify.svg";
 import Image from "next/image";
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-black text-base-content rounded ">
+    <footer className="footer footer-center p-10 bg-gray-100 text-base-content rounded ">
       <nav className="grid grid-flow-col gap-4">
         <a href="#About" className="link link-hover link-primary">
           About me

@@ -11,7 +11,7 @@ import Twitter from "@/public/icon/Twitter.svg";
 
 const Hero = () => {
   return (
-    <div className="hero min-h-screen bg-black pt-24">
+    <div className="hero min-h-screen bg-gray-100 pt-24">
       <div className="  flex flex-col w-full h-fit lg:flex-row">
 
 
@@ -100,7 +100,7 @@ const Hero = () => {
         <svg viewBox="0 0 655 680" fill="none" className=" p-2 max-h-[500px] ">
           <g clip-path="url(#:S1:-clip)" className="group">
             <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105 ">
-              <foreignObject width="655" height="680" className='bg-black' >
+              <foreignObject width="655" height="680" className='bg-gray-100' >
                 <Image alt="" loading="lazy" width="2400" height="3000" decoding="async" data-nimg="1" className="w-full object-cover  opacity-40" sizes="(min-width: 1024px) 41rem, 31rem" src={iam} />
               </foreignObject>
             </g>
