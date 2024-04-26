@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useSession } from "next-auth/react"
+import { createUser, getUserByEmail } from "../api/profile/code";
 interface FormValues {
   name: string;
   Dname: string;
@@ -12,7 +13,12 @@ interface FormValues {
 }
 
 const Page: React.FC = () => {
-  const session = useSession();
+  const session = useSession(); 
+  var data:any;
+  if(session.data?.user?.email){
+    // data=await fetch()
+    
+        }  
   const [formData, setFormData] = useState<FormValues>({
     name: session?.data?.user?.name || "",
     Dname:  "",
@@ -22,7 +28,8 @@ const Page: React.FC = () => {
     email: session?.data?.user?.email || "",
     image:session?.data?.user?.image || "",
   });
-
+  
+  
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

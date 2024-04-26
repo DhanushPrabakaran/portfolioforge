@@ -1,5 +1,4 @@
-import { NextPage } from "next";
-import Head from "next/head";
+// "use client"
 import Image from "next/image";
 import {
   sampleUser,
@@ -9,13 +8,26 @@ import {
 } from "@/components/atoms/sampledata";
 import { Project, Experience, Message } from "@/types";
 import Link from "next/link";
-
-const Page = () => {
+import { auth } from "@/auth";
+import Banner from "@/public/Banner.jpeg";
+import { User } from "@/types/global";
+const Page =async () => {
+  const session = await auth();
+  const renderProfile = async ()=>{
+    console.log(session)
+    const res =await fetch(
+      `http://localhost:3000/api/profile/${session?.user?.email}`
+    );
+    if (!res.ok) {
+      throw new Error('Failed to fetch data')
+    }
+    return res.json()
+  }
+  const item =await renderProfile();
   const user = sampleUser;
-  const projects: Project[] = sampleProjects;
-  const experiences: Experience[] = sampleExperiences;
+  const projects: Project[] = (item && item.data && item.data.projects) || [];
+  const experiences: Experience[] = (item && item.data &&item.data.experience)|| [];
   const messages: Message[] = sampleMessages;
-
   const renderProjects = () => {
     return projects.map((project) => (
       <div
@@ -46,7 +58,6 @@ const Page = () => {
       </div>
     ));
   };
-
   const renderExperiences = () => {
     return experiences.map((experience) => (
       <div
@@ -77,17 +88,14 @@ const Page = () => {
       </div>
     ));
   };
-
+  
   const renderMessages = () => {
     return messages.map((message) => (
-      <div
-        key={message.id}
-        className="bg-white shadow-md p-4 mb-4 group rounded"
-      >
+      <div key={message.id} className="bg-white shadow-md p-4 mb-4 group rounded">
         <h3 className="text-lg font-semibold">{message.sender}</h3>
         <div>
           <p className="text-gray-500">{message.content}</p>
-          <p>{message.timestamp.toLocaleString()}</p>
+          <p>{message.timestamp.toString()}</p>
         </div>
         <div className="hidden  group-hover:flex items-center justify-end w-full duration-1000">
           <Link
@@ -100,56 +108,52 @@ const Page = () => {
       </div>
     ));
   };
-
+  
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Head>
-        <title>Dashboard</title>
-        <meta name="description" content="User Dashboard" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <div className="container mx-auto">
         <section className="bg-white shadow-md rounded-lg mb-4 pb-2">
-          <div className="relative h-32 md:h-48 rounded-t-lg overflow-hidden">
+          <div className="relative h-44 md:h-48 rounded-t-lg overflow-hidden">
             <Image
-              src="/Banner.jpeg"
+              src={Banner}
               alt="Profile Background"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-tl-lg rounded-tr-lg"
+              sizes="100vw"
+              fill
+              className="rounded-tl-lg rounded-tr-lg object-cover "
             />
           </div>
-          <div className="flex flex-col items-center -mt-16">
+          <div className="flex flex-col items-center -mt-16 lg:-mt-20">
             <div className="relative">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white">
                 <Image
-                  src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
+                  src={ item.data.image || "https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
+                  }
+                  // src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
                   alt="Profile Picture"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full border-4 border-white"
+                  width={200}
+                  height={200}
+                  className="rounded-full object-cover"
                 />
               </div>
             </div>
             <div className="flex flex-col items-center">
               <h2 className="text-2xl md:text-3xl font-bold">{user.name}</h2>
               <p className="text-gray-600 text-sm md:text-base font-semibold">
-                {user.role + " . " + user.email + " . " + user.website}
+                {item.data.role + " . " + item.data.email + " . " + item.data.website}
               </p>
               <p className="text-gray-600 text-sm text-center md:text-base">
-                {user.about}
+                {item.data.about}
               </p>
             </div>
             <Link
-              href={""}
+              href={"/profile"}
               className="bg-violet-600 text-white px-4 py-2 rounded-md mt-4"
             >
               Edit Profile
             </Link>
           </div>
         </section>
-
+        {/* {  JSON.stringify(item)} */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-2 ">
           <section className="bg-white shadow-md p-4 rounded-lg max-h-96 overflow-y-scroll">
             <h2 className="text-xl font-semibold mb-4">Projects</h2>
@@ -212,9 +216,9 @@ const Page = () => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1"
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     ></path>
                   </svg>
@@ -282,9 +286,9 @@ const Page = () => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1"
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     ></path>
                   </svg>
@@ -301,9 +305,9 @@ const Page = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                         ></path>
                       </svg>

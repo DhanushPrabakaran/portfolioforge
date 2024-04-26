@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 const Page = () => {
-  const session = useSession();
+  // const session = useSession();
   return (
     <div className="h-full max-w-screen w-full flex items-center justify-center bg-base-100 text-base-content select-none">
       <div className="w-full">
@@ -14,7 +14,7 @@ const Page = () => {
                 <span className="text-indigo-600">Simplified for Success</span>
               </h2>
               <p className="mt-2 text-md text-gray-500 md:text-base">
-              {JSON.stringify(session, null, 2)}
+              {/* {JSON.stringify(session, null, 2)} */}
                 Unlock your potential with our user-friendly portfolio builder.
                 Perfect for students and professionals alike, our tool makes
                 portfolio creation a breeze. With just a few clicks, transform

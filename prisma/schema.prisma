@@ -12,12 +12,11 @@ model Project {
   title         String
   description   String?
   collaborators String?
-  link           String
+  link          String
   year          Int
   image         String?
-  Client        String?
-  User          User?   @relation(fields: [userId], references: [id])
-  userId        String? @db.ObjectId
+  User          User?   @relation(fields: [email], references: [email])
+  email         String
 }
 
 model Experience {
@@ -30,22 +29,23 @@ model Experience {
   url         String?
   Company     String?
   Description String?
-  User        User?   @relation(fields: [userId], references: [id])
-  userId      String? @db.ObjectId
+  User        User?   @relation(fields: [email], references: [email])
+  email       String
 }
 
 model Message {
-  id         String       @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  message   String
-  date      DateTime     @default(now())
-  User        User?   @relation(fields: [userId], references: [id])
-  userId      String? @db.ObjectId
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  message String
+  date    DateTime @default(now())
+  User    User?    @relation(fields: [email], references: [email])
+  email   String
 }
 
 model User {
   id         String       @id @default(auto()) @map("_id") @db.ObjectId
   email      String       @unique
+  username   String       @unique
   name       String?
   Dname      String?
   role       String
@@ -54,6 +54,5 @@ model User {
   about      String
   projects   Project[]
   experience Experience[]
-  message Message[]
+  message    Message[]
 }
-

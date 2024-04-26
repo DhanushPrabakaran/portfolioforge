@@ -104,7 +104,7 @@ const Hero = () => {
                 <Image alt="" loading="lazy" width="2400" height="3000" decoding="async" data-nimg="1" className="w-full object-cover  opacity-40" sizes="(min-width: 1024px) 41rem, 31rem" src={iam} />
               </foreignObject>
             </g>
-            <use href="#:S1:-shape" stroke-width="2" className="stroke-neutral-950/10">
+            <use href="#:S1:-shape" strokeWidth="2" className="stroke-neutral-950/10">
             </use>
           </g>
           <defs>

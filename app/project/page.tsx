@@ -3,7 +3,18 @@
 import { useSession } from "next-auth/react";
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 
+// (property) data: Omit<{
+//   title: string; /
+//   description: string | null; /
+//   collaborators: string | null; /
+//   link: string; /
+//   year: number; /
+//   image: string | null;
+//   Client: string | null;
+//   userId: string | null; 
+// }, "id">
 interface ProjectFormValues {
+  email: string;
   title: string;
   year: string;
   company: string;
@@ -15,6 +26,7 @@ interface ProjectFormValues {
 const Page: React.FC = () => {
   const session = useSession();
   const [projectFormData, setProjectFormData] = useState<ProjectFormValues>({
+    email:session.data?.user?.email || "",
     title: "",
     year: "",
     company: "",
@@ -37,7 +49,7 @@ const Page: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("your-backend-endpoint", {
+      const response = await fetch("http://localhost:3000/api/project", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

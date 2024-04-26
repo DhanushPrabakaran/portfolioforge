@@ -1,29 +1,17 @@
 import { NextResponse } from 'next/server'
-import { createUser, getUserById, updateUser, deleteUser } from '@/app/api/profile/code';
+import { createUser,getUserByEmail, getUserById, updateUser, deleteUser } from '@/app/api/profile/code';
+type Params = {
+  email: string
+}
 
-// model User {
-  //   id         String       @id @default(auto()) @map("_id") @db.ObjectId
-  //   email      String       @unique
-  //   name       String?
-  //   Dname      String?
-  //   role       String
-  //   image      String
-  //   website    String
-  //   about      String
-  //   projects   Project[]
-  //   experience Experience[]
-  // }
  
-export async function GET(request: Request) {
+export async function GET(request: Request,context: { params: Params }) {
+  
+  let res=context.params.email;
+  console.log("hai post",res);
   const response =
-  await getUserById("6621e579a0289372ecf36ad3");
-//    await createUser({
-//     email: 'example@example.com', name: 'John Doe', role: 'Developer',
-//     image: '',
-//     Dname: null,
-//     website: '',
-//     about: ''
-// });
+  await getUserByEmail(res);
+
 console.log("hai")
   return NextResponse.json(
     {data:response}

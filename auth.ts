@@ -12,9 +12,30 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       console.log("signin");
-
-      return true;
-    },
+      console.log("user",user,"account",account,"profile", profile?.login )
+        if (user.email) {
+        const response = await getUserByEmail(user.email);
+        console.log("respo",response);
+        if ( !response )  {
+          const newUser = await createUser({
+            name: user.name || "",
+            username:  String(profile?.login)|| "",
+            Dname: "",
+            role: "",
+            website: "",
+            about:String(profile?.bio )||"",
+            email: user.email || "",
+            image: user.image || "",
+          });
+          console.log(newUser,"newuser");
+   
+      }
+       else {
+        console.log("User exit");
+      }
+    }
+    return true;
+  },
 
     async redirect({ url, baseUrl }) {
       return baseUrl;

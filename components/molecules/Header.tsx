@@ -13,9 +13,12 @@ const Header =  () => {
         <Link href="/">
           portfolio<span className="text-indigo-600">forge</span>
         </Link>
+        {/* <div>
+          {JSON.stringify(session,null,2)}
+        </div> */}
       </div>
       <div className="flex-none">
-        {session ? (
+        {session.data ? (
           <>
             <div className="dropdown dropdown-end ">
               <div
