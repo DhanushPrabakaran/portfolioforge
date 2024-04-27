@@ -30,9 +30,18 @@ export async function POST(request: Request) {
     status: 200,
   });
 }
-export async function DELETE(request:Request,context:{params:Params}) {
-    let res = context.params.id;
-    console.log("hai post", res);
-    return deleteProject(res);
-}
+export async function DELETE(request: Request, context: { params: Params }): Promise<Response> {
+  try {
+      const { id } = context.params;
+      console.log("hai post", id);
+      
+      // Call the deleteProject function
+      await deleteProject(id);
 
+      // Return a success response
+      return NextResponse.json({ message: 'Project deleted successfully' },{status:500});
+  } catch (error) {
+      // Return an error response
+      return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    }
+}
