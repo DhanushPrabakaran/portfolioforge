@@ -59,7 +59,7 @@ const Page: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/profile", {
+      const response = await fetch("http://localhost:3000/api/profile", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

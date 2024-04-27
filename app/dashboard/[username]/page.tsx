@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import {
   sampleUser,
@@ -5,16 +6,26 @@ import {
   sampleExperiences,
   sampleMessages,
 } from "@/components/atoms/sampledata";
+import { useParams } from 'next/navigation'
+import { getUserByEmail} from "@/app/api/profile/code"
 import { Project, Experience, Message } from "@/types";
 import Link from "next/link";
 import { auth } from "@/auth";
 import Banner from "@/public/Banner.jpeg";
 import { revalidatePath } from "next/cache";
-const Page = async () => {
+import email from "next-auth/providers/email";
+const Page = async ({
+    params,
+  }: {
+    params: { username: string };}) => {
+    // const param = useParams<{ email: string}>()
+
+    // const  userData = await getUserByEmail(params?.email);
   const session = await auth();
   const renderProfile = async () => {
     console.log(session);
-    const res = await fetch(`http://localhost:3000/api/profile/${session?.user?.email}`);
+    const res = await fetch(`http://localhost:3000/api/profile/${params.username}`);
+    // const res = await fetch(`http://localhost:3000/api/profile/DhanushPrabakaran`);
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -59,7 +70,7 @@ const Page = async () => {
             </Link>
             <button
               className=" text-xs bg-gray-200 hover:bg-red-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
-              onClick={()=>handleDelete(project.id)}
+              onClick={() => handleDelete(project.id)}
             >
               delete
             </button>
@@ -172,7 +183,8 @@ const Page = async () => {
             </Link>
           </div>
         </section>
-        {/* {  JSON.stringify(item)} */}
+
+        {JSON.stringify(params)}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mx-2 ">
           <section className="bg-white shadow-md p-4 rounded-lg max-h-96 overflow-y-scroll">
             <h2 className="text-xl font-semibold mb-4">Projects</h2>

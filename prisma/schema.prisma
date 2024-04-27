@@ -13,7 +13,7 @@ model Project {
   description   String?
   collaborators String?
   link          String
-  year          Int
+  year          String
   image         String?
   User          User?   @relation(fields: [email], references: [email])
   email         String

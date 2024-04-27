@@ -16,7 +16,7 @@ import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 interface ProjectFormValues {
   email: string;
   title: string;
-  year: string;
+  year: number;
   company: string;
   link: string;
   collaborators: string;
@@ -40,7 +40,7 @@ const Page: React.FC = () => {
   const [projectFormData, setProjectFormData] = useState<ProjectFormValues>({
     title: "",
     email:session.data?.user?.email || "",
-    year: "",
+    year: 0,
     company: "",
     link: "",
     collaborators: "",
@@ -106,10 +106,10 @@ const Page: React.FC = () => {
             htmlFor="year"
             className="block text-sm font-medium text-gray-700"
           >
-            Year *
+            Year
           </label>
           <input
-            type="text"
+            type="number"
             name="year"
             id="year"
             value={projectFormData.year}

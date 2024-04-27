@@ -14,6 +14,7 @@ export async function getUserByUserName(
     where: { username },
     include: { projects: true, experience: true },
   });
+  // });
 }
 export async function getUserByEmail(email: string): Promise<User | null> {
   return prisma.user.findUnique({

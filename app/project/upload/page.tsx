@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 interface ProjectFormValues {
   title: string;
-  year: string;
+  year: number;
   company: string;
   link: string;
   collaborators: string;
@@ -13,7 +13,7 @@ interface ProjectFormValues {
 const Page: React.FC = () => {
   const [projectFormData, setProjectFormData] = useState<ProjectFormValues>({
     title: '',
-    year: '',
+    year: 0,
     company: '',
     link: '',
     collaborators: '',

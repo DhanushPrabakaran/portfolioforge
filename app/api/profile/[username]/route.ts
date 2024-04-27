@@ -9,7 +9,7 @@ type Params = {
     
     let res=context.params.username;
     const response =
-    await getUserByUserName(res);
+    await getUserByEmail(res);
   
   console.log("hai")
     return NextResponse.json(
