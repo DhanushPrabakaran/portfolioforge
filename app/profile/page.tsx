@@ -44,12 +44,6 @@ const Page: React.FC = () => {
     fetchData();
   }, [session]);
 
-  useEffect(() => {
-    console.log(session);
-  }, [session]);
-
-  
-
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -59,6 +53,7 @@ const Page: React.FC = () => {
       ...formData,
       [name]: value,
     });
+    console.log
   };
 
   const handleSubmit = async (e: FormEvent) => {

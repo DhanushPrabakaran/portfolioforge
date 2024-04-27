@@ -11,6 +11,7 @@ import Link from "next/link";
 import { auth } from "@/auth";
 import Banner from "@/public/Banner.jpeg";
 import { User } from "@/types/global";
+import { revalidatePath } from "next/cache";
 const Page =async () => {
   const session = await auth();
   const renderProfile = async ()=>{
@@ -23,6 +24,16 @@ const Page =async () => {
     }
     return res.json()
   }
+  const handleDelete = async (projectId:string) => {
+    try {
+        const response = await fetch(`http://localhost:3000/api/project/${projectId}`,{method:"DELETE"});
+        revalidatePath("/dashboard")
+        console.log('Project deleted successfully');
+    } catch (error) {
+        // Handle error
+        console.error('Error deleting project:', error);
+    }
+};
   const item =await renderProfile();
   const user = sampleUser;
   const projects: Project[] = (item && item.data && item.data.projects) || [];
@@ -47,12 +58,12 @@ const Page =async () => {
             >
               update
             </Link>
-            <Link
+            <button
               className=" text-xs bg-gray-200 hover:bg-red-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
-              href={""}
+              onClick={()=>handleDelete(project.id)}
             >
               delete
-            </Link>
+            </button>
           </div>
         </div>
       </div>
