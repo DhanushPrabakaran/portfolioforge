@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { createUser,getUserByEmail, getUserById, updateUser, deleteUser } from '@/app/api/profile/code';
+import { createUser,getUserByEmail, updateUser, deleteUser } from '@/app/api/profile/code';
 type Params = {
   email: string
 }
@@ -17,7 +17,9 @@ console.log("hai")
     {data:response}
   )
 }
-
+// export async function PATHC(params:type) {
+  
+// }
 
 export async function POST(request: Request) {
   let res=await request.json();

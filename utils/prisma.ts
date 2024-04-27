@@ -1,4 +1,4 @@
-import { PrismaClient,User,Project, Experience } from '@prisma/client';
+import { PrismaClient, User, Project, Experience, Message } from "@prisma/client";
 
 let prisma: PrismaClient;
 
@@ -14,4 +14,4 @@ if (process.env.NODE_ENV === "production") {
   prisma = globalWithPrisma.prisma;
 }
 
-export { prisma, type User, type  Project, type Experience};
+export { prisma, type User, type Project, type Experience, type Message };

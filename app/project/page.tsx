@@ -23,11 +23,23 @@ interface ProjectFormValues {
   description: string;
 }
 
+  // {
+  //   "title": "Dev Geeks Community",
+  //   "year": 2024,
+  //   "link": "https://github.com/DhanushPrabakaran/dev_geeks",
+  //   "collaborators": "ram",
+  //   "description": "Dev Geeks is a platform for developers to create, learn, and grow. All levels of expertise are welcome in our supportive community.",
+  //   "User": {
+  //     "connect": {
+  //       "email": "dhanushprabakaran18@gmail.com"
+  //     }
+  //   }
+  // }
 const Page: React.FC = () => {
   const session = useSession();
   const [projectFormData, setProjectFormData] = useState<ProjectFormValues>({
-    email:session.data?.user?.email || "",
     title: "",
+    email:session.data?.user?.email || "",
     year: "",
     company: "",
     link: "",

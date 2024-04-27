@@ -1,35 +1,56 @@
 "use client";
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import { useSession } from "next-auth/react"
-import { createUser, getUserByEmail } from "../api/profile/code";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useSession } from "next-auth/react";
+// import auth from "@/auth"
+// import { createUser, getUserByEmail } from "../api/profile/code";
 interface FormValues {
   name: string;
   Dname: string;
   role: string;
   website: string;
   about: string;
-  email:string;
-  image:string;
+  email: string;
+  image: string;
 }
 
 const Page: React.FC = () => {
-  const session = useSession(); 
-  var data:any;
-  if(session.data?.user?.email){
-    // data=await fetch()
-    
-        }  
+
+  const [session, setSession] = useState(useSession());
+  const [data, setData] = useState(null);
   const [formData, setFormData] = useState<FormValues>({
-    name: session?.data?.user?.name || "",
-    Dname:  "",
+    name: "",
+    Dname: "",
     role: "",
     website: "",
     about: "",
     email: session?.data?.user?.email || "",
-    image:session?.data?.user?.image || "",
+    image: "",
   });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`http://localhost:3000/api/profile/${session?.data?.user?.email}`);
+        if (!res.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const jsonData = await res.json();
+        setData(jsonData);
+        setFormData(jsonData.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, [session]);
+
+  useEffect(() => {
+    console.log(session);
+  }, [session]);
+
   
-  
+
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -66,6 +87,7 @@ const Page: React.FC = () => {
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Profile Information</h2>
+      {JSON.stringify(data)}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
