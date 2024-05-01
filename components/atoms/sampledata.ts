@@ -7,7 +7,7 @@ import { Experience, Message, Project } from "@/types/global";
 
 export const sampleUser = {
   id: "1",
-  name: "John Doe",
+  name: "Dhanush Prabakaran",
   email: "john@example.com",
   role: "Developer",
   image: "https://example.com/avatar.jpg",
