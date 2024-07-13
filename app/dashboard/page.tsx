@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import {
   sampleUser,
   sampleProjects,
@@ -13,6 +14,7 @@ import { revalidatePath } from "next/cache";
 const Page = async () => {
   const session = await auth();
   const renderProfile = async () => {
+    
     console.log(session);
     const res = await fetch(`http://localhost:3000/api/profile/${session?.user?.email}`);
     if (!res.ok) {
@@ -59,7 +61,8 @@ const Page = async () => {
             </Link>
             <button
               className=" text-xs bg-gray-200 hover:bg-red-600 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default m-1"
-              onClick={()=>handleDelete(project.id)}
+              // onClick={()=>handleDelete(project.id) 
+              // }
             >
               delete
             </button>

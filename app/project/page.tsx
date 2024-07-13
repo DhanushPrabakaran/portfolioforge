@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
-
+import {createProject} from "@/app/api/project/actions.js"
 // (property) data: Omit<{
 //   title: string; /
 //   description: string | null; /
@@ -39,7 +39,7 @@ const Page: React.FC = () => {
   const session = useSession();
   const [projectFormData, setProjectFormData] = useState<ProjectFormValues>({
     title: "",
-    email:session.data?.user?.email || "",
+    email:session.data?.user?.email || "dhanushprabakaran18@gmail.com",
     year: 0,
     company: "",
     link: "",
@@ -83,7 +83,7 @@ const Page: React.FC = () => {
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-8">
       <h2 className="text-2xl font-semibold mb-4">Projects</h2>
       {JSON.stringify(session, null, 2)}
-      <form onSubmit={handleProjectSubmit} className="space-y-4">
+      <form action={createProject} className="space-y-4">
         <div>
           <label
             htmlFor="title"

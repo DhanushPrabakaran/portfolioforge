@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getUserByUserName } from "@/app/api/portfolio/code";
+import { getUserByUserName } from "@/app/api/portfolio/actions";
 type Params = {
   username: string;
 };
