@@ -1,8 +1,5 @@
-"use client";
 import Link from "next/link";
-// import { useSession } from "next-auth/react";
 const Page = () => {
-  // const session = useSession();
   return (
     <div className="h-full max-w-screen w-full flex items-center justify-center bg-base-100 text-base-content select-none">
       <div className="w-full">

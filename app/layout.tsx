@@ -7,13 +7,12 @@ import Footer from "@/components/molecules/Footer";
 
 import AuthSessionProvider from "@/providers/AuthSessionProvider";
 
-import { Bakbak_One } from 'next/font/google'
-
+import { Bakbak_One } from "next/font/google";
 
 const inter = Bakbak_One({
-  weight:[ '400'],
-  subsets:['devanagari'],
-})
+  weight: ["400"],
+  subsets: ["devanagari"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,14 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AuthSessionProvider >
     <html lang="en">
       <body className={`${inter.className} `}>
-        <Header />
-        {children}
-        <Footer/>
+        <AuthSessionProvider>
+          <Header />
+          {children}
+          <Footer />
+        </AuthSessionProvider>
       </body>
     </html>
-    </AuthSessionProvider>
   );
 }
